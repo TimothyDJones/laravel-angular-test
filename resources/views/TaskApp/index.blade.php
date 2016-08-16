@@ -14,13 +14,22 @@
   </div>
   <hr />
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 col-sm-4">
       <table class="table table-stripped">
+        <thead>
+          <td>Done?</td>
+          <td>Title</td>
+          <td>Description</td>
+          <td>Actions</td>
+        </thead>
         <tr ng-repeat="task in tasks">
           <td><input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="task.done" ng-change="updateTask(task)"></td>
           <td><% task.title %></td>
           <td><% task.description %></td>
-          <td><button class="button btn-danger btn-xs" ng-click="deleteTask($index)">  <span class="glyphicon glyphicon-trash"></span></button></td>
+          <td>
+            <button class="button btn-warning btn-xs" ng-click="editTask($index)" title="Edit">  <span class="glyphicon glyphicon-pencil"></span></button>&nbsp;
+            <button class="button btn-danger btn-xs" ng-click="deleteTask($index)" title="Delete">  <span class="glyphicon glyphicon-trash"></span></button>
+          </td>
         </tr>
       </table>
     </div>
